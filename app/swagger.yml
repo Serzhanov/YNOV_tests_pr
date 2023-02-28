@@ -10,6 +10,7 @@ servers:
   - url: "/api"
 
 paths:
+
   /people:
     get:
       operationId: "people.read_all"
@@ -37,32 +38,7 @@ paths:
         "201":
           description: "Successfully created person"
 
-    put:
-      tags:
-        - People
-      operationId: "people.update"
-      summary: "Update a person"
-      parameters:
-        - $ref: "#/components/parameters/lname"
-      responses:
-        "200":
-          description: "Successfully updated person"
-      requestBody:
-        content:
-          application/json:
-            schema:
-              x-body-name: "person"
-              $ref: "#/components/schemas/Person"
-    delete:
-      tags:
-        - People
-      operationId: "people.delete"
-      summary: "Delete a person"
-      parameters:
-        - $ref: "#/components/parameters/lname"
-      responses:
-        "204":
-          description: "Successfully deleted person"
+
           
           
 
@@ -80,7 +56,35 @@ paths:
         "200":
           description: "Successfully read person"
 
-   
+     delete:
+      tags:
+        - People
+      operationId: "people.delete"
+      summary: "Delete a person"
+      parameters:
+        - $ref: "#/components/parameters/lname"
+      responses:
+        "204":
+          description: "Successfully deleted person"
+          
+     put:
+      tags:
+        - People
+      operationId: "people.update"
+      summary: "Update a person"
+      parameters:
+        - $ref: "#/components/parameters/lname"
+      responses:
+        "200":
+          description: "Successfully updated person"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "person"
+              $ref: "#/components/schemas/Person"
+
+
           
 components:
   schemas:
